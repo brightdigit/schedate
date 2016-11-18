@@ -5,6 +5,9 @@ node_js:
   - "stable"
   - "6"
   - "5"
+before_script:
+  - npm install -g gulp
+script: gulp test
 # os:
 #   - linux
 #   - osx
