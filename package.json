@@ -1,0 +1,42 @@
+{
+  "name": "schedate",
+  "version": "1.0.0-alpha.1",
+  "description": "Schedule dates based on available times and weekdays.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node_modules/gulp/bin/gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brightdigit/schedate.git"
+  },
+  "keywords": [
+    "schedule",
+    "dates",
+    "weekdays",
+    "buffer"
+  ],
+  "author": "Leo G Dion",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brightdigit/schedate/issues"
+  },
+  "homepage": "https://github.com/brightdigit/schedate#readme",
+  "dependencies": {
+    "moment": "^2.16.0"
+  },
+  "devDependencies": {
+    "fs-extra": "^1.0.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-beautify": "^2.0.1",
+    "gulp-bump": "^2.5.0",
+    "gulp-istanbul": "^1.1.1",
+    "gulp-jscs": "^4.0.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-mocha": "^3.0.1",
+    "gulp-util": "^3.0.7",
+    "js-yaml": "^3.7.0",
+    "jshint": "^2.9.4",
+    "mocha": "^3.1.2"
+  }
+}
