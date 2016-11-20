@@ -1,10 +1,11 @@
 {
   "name": "schedate",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "Schedule dates based on available times and weekdays.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "./node_modules/gulp/bin/gulp.js test"
+    "test": "./node_modules/gulp/bin/gulp.js test",
+    "bump": "./node_modules/gulp/bin/gulp.js appveyor"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,8 @@
   },
   "homepage": "https://github.com/brightdigit/schedate#readme",
   "dependencies": {
-    "moment": "^2.16.0"
+    "moment": "^2.16.0",
+    "moment-timezone": "^0.5.9"
   },
   "devDependencies": {
     "fs-extra": "^1.0.0",

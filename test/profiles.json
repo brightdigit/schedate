@@ -14,7 +14,8 @@
         "14:17",
         "15:17",
         "21:08"
-      ]
+      ],
+      "timezone": "America/Porto_Acre"
     }
   ],
   "5712dfe79b2f40a753e5f37f": [
@@ -29,7 +30,8 @@
       "times": [
         "08:35",
         "17:49"
-      ]
+      ],
+      "timezone": "America/Porto_Acre"
     }
   ]
 }
