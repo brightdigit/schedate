@@ -13,7 +13,7 @@
   <title>schedate - schedule dates based on weekly schedules</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="/css/main.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
 
 </head>
 
@@ -43,30 +43,25 @@
 
     <div class="btn-group" data-toggle="buttons">
       <label class="btn btn-primary">
-    <input type="checkbox" checked autocomplete="off"> Sunday </label>
+    <input type="checkbox" autocomplete="off"> Sunday </label>
       <label class="btn btn-primary active">
-    <input type="checkbox" autocomplete="off"> Monday </label>
+    <input type="checkbox" checked autocomplete="off"> Monday </label>
       <label class="btn btn-primary active">
-    <input type="checkbox" autocomplete="off"> Tuesday </label>
+    <input type="checkbox" checked autocomplete="off"> Tuesday </label>
       <label class="btn btn-primary active">
-    <input type="checkbox" autocomplete="off"> Wednesday </label>
+    <input type="checkbox" checked autocomplete="off"> Wednesday </label>
       <label class="btn btn-primary active">
-    <input type="checkbox" autocomplete="off"> Thursday</label>
+    <input type="checkbox" checked autocomplete="off"> Thursday</label>
       <label class="btn btn-primary active">
-    <input type="checkbox" autocomplete="off"> Friday </label>
+    <input type="checkbox" checked autocomplete="off"> Friday </label>
       <label class="btn btn-primary">
     <input type="checkbox" autocomplete="off"> Saturday
   </label>
 
     </div>
-    <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-    <input class="form-control" type="time" value="13:45:00" id="example-time-input">
-    <select multiple class="form-control" id="exampleSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+    <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="requested-datetime">
+    <input class="form-control" type="time" value="13:45:00" id="new-time">
+    <select multiple class="form-control" id="times-selected">
     </select>
   </div>
   <!-- /.container -->
@@ -75,7 +70,7 @@
   <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="/js/main.js"></script>
+  <script src="js/main.js"></script>
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
 </body>
