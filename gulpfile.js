@@ -1,18 +1,20 @@
 var gulp = require('gulp');
 var jscs = require('gulp-jscs');
 var bump = require('gulp-bump');
-var beautify = require('gulp-beautify');
+var prettify = require('gulp-jsbeautifier');
 var jshint = require('gulp-jshint');
 var util = require('gulp-util');
 var mocha = require('gulp-mocha');
 var istanbul = require('gulp-istanbul');
 var bump = require('gulp-bump');
+var mochaPhantomJS = require('gulp-mocha-phantomjs');
 
 var async = require('async');
 var yaml = require('js-yaml');
 var fs = require('fs-extra');
 
-var jsSrc = ['./*.js', 'lib/**/*.js', 'test/**/*.js'];
+var jsSrc = ['./*.js', 'lib/**/*.js', 'test/**/*.js*'];
+var src = jsSrc.concat(['test/**/*.html']);
 
 gulp.task('jscs', function() {
   return gulp.src(jsSrc, {
@@ -28,10 +30,10 @@ gulp.task('bump', function() {
   })).pipe(gulp.dest('./'));
 });
 
-gulp.task('beautify', gulp.series('jscs', function() {
-  return gulp.src(jsSrc, {
+gulp.task('prettify', gulp.series('jscs', function() {
+  return gulp.src(src, {
     base: '.',
-  }).pipe(beautify({
+  }).pipe(prettify({
     indent_size: 2,
   })).pipe(gulp.dest('.'));
 }));
@@ -44,11 +46,11 @@ gulp.task('pre-test', function() {
     .pipe(istanbul.hookRequire());
 });
 
-gulp.task('lint', gulp.series('beautify', function() {
+gulp.task('lint', gulp.series('prettify', function() {
   return gulp.src(jsSrc).pipe(jshint()).pipe(jshint.reporter('default')).pipe(jshint.reporter('fail'));
 }));
 
-gulp.task('test', gulp.series(gulp.parallel('lint', 'pre-test'), function() {
+gulp.task('node-test', gulp.series(gulp.parallel('lint', 'pre-test'), function() {
   return gulp.src(['test/**/*.js'], {
       read: false,
     })
@@ -63,6 +65,12 @@ gulp.task('test', gulp.series(gulp.parallel('lint', 'pre-test'), function() {
       },
     }))
     .on('error', util.log);
+}));
+
+gulp.task('browser-test', gulp.series(gulp.parallel('lint', 'pre-test'), function() {
+  return gulp
+    .src('test/runner.html')
+    .pipe(mochaPhantomJS());
 }));
 
 gulp.task('appveyor', gulp.series('bump', function(done) {
@@ -81,6 +89,8 @@ gulp.task('appveyor', gulp.series('bump', function(done) {
   });
 }));
 
-gulp.task('javascript', gulp.parallel('lint', 'jscs', 'beautify'));
+gulp.task('test', gulp.parallel('browser-test', 'node-test'));
+
+gulp.task('javascript', gulp.parallel('lint', 'jscs', 'prettify'));
 
 gulp.task('default', gulp.parallel('javascript', 'test', 'bump', 'appveyor'));
