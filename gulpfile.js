@@ -1,4 +1,6 @@
 var gulp = require('gulp');
+var gulpBrowser = require('gulp-browser');
+var sass = require('gulp-sass');
 var jscs = require('gulp-jscs');
 var bump = require('gulp-bump');
 var prettify = require('gulp-jsbeautifier');
@@ -8,13 +10,55 @@ var mocha = require('gulp-mocha');
 var istanbul = require('gulp-istanbul');
 var bump = require('gulp-bump');
 var mochaPhantomJS = require('gulp-mocha-phantomjs');
+var del = require('del');
+var ghPages = require('gulp-gh-pages');
 
 var async = require('async');
 var yaml = require('js-yaml');
 var fs = require('fs-extra');
 
-var jsSrc = ['./*.js', 'lib/**/*.js', 'test/**/*.js*'];
-var src = jsSrc.concat(['test/**/*.html']);
+var jsSrc = ['./static/**/*.js', './*.js'];
+var src = jsSrc.concat(['./static/**/*.html', './static/**/*.scss']);
+var gls = require('gulp-live-server');
+
+
+gulp.task('deploy', function() {
+  return gulp.src('./public/**/*')
+    .pipe(ghPages());
+});
+
+gulp.task('serve', function() {
+  //1. serve with default settings
+  var server = gls.static('public'); //Equals to gls.static('public', 3000);
+  server.start();
+
+  //Use gulp.watch to trigger server actions(notify, start or stop)
+  gulp.watch(['static/**/*.css', 'static/**/*.html'], function(file) {
+    server.notify.apply(server, [file]);
+  });
+});
+gulp.task('clean', function() {
+  return del([
+    'public',
+  ]);
+});
+
+gulp.task('html', function() {
+  return gulp.src('./static/**/*.html')
+    .pipe(gulp.dest('./public'));
+});
+
+gulp.task('sass', function() {
+  return gulp.src('./static/scss/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./public/css'));
+});
+
+gulp.task('browserify', function() {
+  return gulp.src('./static/js/*.js')
+    .pipe(gulpBrowser.browserify()) // Gulp.browserify() accepts an optional array of tansforms
+    .pipe(gulp.dest('./public/js/'));
+});
 
 gulp.task('jscs', function() {
   return gulp.src(jsSrc, {
@@ -38,39 +82,8 @@ gulp.task('prettify', gulp.series('jscs', function() {
   })).pipe(gulp.dest('.'));
 }));
 
-gulp.task('pre-test', function() {
-  return gulp.src(['lib/**/*.js'])
-    // Covering files
-    .pipe(istanbul())
-    // Force `require` to return covered files
-    .pipe(istanbul.hookRequire());
-});
-
 gulp.task('lint', gulp.series('prettify', function() {
   return gulp.src(jsSrc).pipe(jshint()).pipe(jshint.reporter('default')).pipe(jshint.reporter('fail'));
-}));
-
-gulp.task('node-test', gulp.series(gulp.parallel('lint', 'pre-test'), function() {
-  return gulp.src(['test/**/*.js'], {
-      read: false,
-    })
-    .pipe(mocha({
-      reporter: 'spec',
-    }))
-    .pipe(istanbul.writeReports())
-    // Enforce a coverage of at least 90%
-    .pipe(istanbul.enforceThresholds({
-      thresholds: {
-        global: 90,
-      },
-    }))
-    .on('error', util.log);
-}));
-
-gulp.task('browser-test', gulp.series(gulp.parallel('lint', 'pre-test'), function() {
-  return gulp
-    .src('test/runner.html')
-    .pipe(mochaPhantomJS());
 }));
 
 gulp.task('appveyor', gulp.series('bump', function(done) {
@@ -89,8 +102,14 @@ gulp.task('appveyor', gulp.series('bump', function(done) {
   });
 }));
 
-gulp.task('test', gulp.parallel('browser-test', 'node-test'));
+gulp.task('prep', gulp.parallel('lint', 'jscs', 'prettify'));
 
-gulp.task('javascript', gulp.parallel('lint', 'jscs', 'prettify'));
+gulp.task('js', gulp.series('browserify'));
 
-gulp.task('default', gulp.parallel('javascript', 'test', 'bump', 'appveyor'));
+gulp.task('build', gulp.parallel('html', 'sass', 'js'));
+
+gulp.task('public', gulp.series('clean', 'prep', 'build'));
+
+gulp.task('publish', gulp.series('public', 'deploy'));
+
+gulp.task('default', gulp.parallel('public', 'bump', 'appveyor'));
