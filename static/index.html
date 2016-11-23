@@ -2,82 +2,106 @@
 <html lang="en">
 
 <head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Skeleton: Responsive CSS Boilerplate</title>
   <meta name="description" content="">
   <meta name="author" content="">
-  <!--<link rel="icon" href="../../favicon.ico">-->
 
-  <title>schedate - schedule dates based on weekly schedules</title>
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap core CSS -->
-  <link href="css/main.css" rel="stylesheet">
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="../../dist/images/favicon.png">
 
 </head>
 
 <body>
 
-  <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-    <a class="navbar-brand" href="#">schedate</a>
-    <ul class="nav navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Docs</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
-      </li>
-    </ul>
-  </nav>
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <div class="container">
-
-    <div class="starter-template">
-      <h1>Bootstrap starter template</h1>
-      <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12 col-md-9">
-        <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-primary">
-    <input type="checkbox" autocomplete="off"> Sunday </label>
-          <label class="btn btn-primary active">
-    <input type="checkbox" checked autocomplete="off"> Monday </label>
-          <label class="btn btn-primary active">
-    <input type="checkbox" checked autocomplete="off"> Tuesday </label>
-          <label class="btn btn-primary active">
-    <input type="checkbox" checked autocomplete="off"> Wednesday </label>
-          <label class="btn btn-primary active">
-    <input type="checkbox" checked autocomplete="off"> Thursday</label>
-          <label class="btn btn-primary active">
-    <input type="checkbox" checked autocomplete="off"> Friday </label>
-          <label class="btn btn-primary">
-    <input type="checkbox" autocomplete="off"> Saturday
-  </label>
-
+  <div class="section hero">
+    <div class="container">
+      <div class="row">
+        <div class="one-half column">
+          <h4 class="hero-heading">Stop coding non-responsive sites. Let users view sites from anywhere.</h4>
+          <a class="button button-primary" href="http://getskeleton.com">Try Skeleton</a>
         </div>
-        <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="requested-datetime">
-        <input class="form-control" type="time" value="13:45:00" id="new-time">
-        <select multiple class="form-control" id="times-selected">
-    </select>
+        <div class="one-half column phones">
+          <img class="phone" src="images/iphone.png">
+          <img class="phone" src="images/iphone.png">
+        </div>
       </div>
     </div>
-
   </div>
-  <!-- /.container -->
+
+  <div class="section values">
+    <div class="container">
+      <div class="row">
+        <div class="one-third column value">
+          <h2 class="value-multiplier">67%</h2>
+          <h5 class="value-heading">Purchase Increase</h5>
+          <p class="value-description">Percentage of users more likely to purchase on mobile friendly site.</p>
+        </div>
+        <div class="one-third column value">
+          <h2 class="value-multiplier">90%</h2>
+          <h5 class="value-heading">Multi-device Users</h5>
+          <p class="value-description">Most of the world accesses the internet on multiple devices.</p>
+        </div>
+        <div class="one-third column value">
+          <h2 class="value-multiplier">66%</h2>
+          <h5 class="value-heading">Sad Users</h5>
+          <p class="value-description">Percentage of users that are frustrated with page load times.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section get-help">
+    <div class="container">
+      <h3 class="section-heading">Need help getting started?</h3>
+      <p class="section-description">Skeleton is an amazingly easy place to start with responsive development. If you want to learn more, just visit the documentation!</p>
+      <a class="button button-primary" href="http://getskeleton.com">View Skeleton Docs</a>
+    </div>
+  </div>
+
+  <div class="section categories">
+    <div class="container">
+      <h3 class="section-heading">Responsive Images</h3>
+      <p class="section-description">Skeleton images sit easily in grid with .u-max-full-width class. I suggest exploring solution to serving different images based on device size.</p>
+      <div class="row">
+        <div class="one-half column category">
+          <img class="u-max-full-width" src="images/placeholder.png">
+        </div>
+        <div class="one-half column category">
+          <img class="u-max-full-width" src="images/placeholder.png">
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="js/main.js"></script>
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
+
+
+  <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 
 </html>
