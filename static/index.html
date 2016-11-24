@@ -19,10 +19,87 @@
 </head>
 
 <body>
+  <div class="container-full">
+    <div class="flex-row pad-top-5 pad-bottom-5">
+      <div class="flex-column">
+        <label class="button-toggle">
+          <input name="days" value="sun" type="checkbox">
+          <span class="label-body">Sunday</span>
+        </label>
+        <label class="button-toggle">
+          <input name="days" value="mon" type="checkbox" checked>
+          <span class="label-body">Monday</span>
+        </label>
+        <label class="button-toggle">
+          <input name="days" value="tue" type="checkbox" checked>
+          <span class="label-body">Tuesday</span>
+        </label>
+        <label class="button-toggle">
+          <input name="days" value="wed" type="checkbox" checked>
+          <span class="label-body">Wednesday</span>
+        </label>
+        <label class="button-toggle">
+          <input name="days" value="thur" type="checkbox" checked>
+          <span class="label-body">Thursday</span>
+        </label>
+        <label class="button-toggle">
+          <input name="days" value="fri" type="checkbox" checked>
+          <span class="label-body">Friday</span>
+        </label>
+        <label class="button-toggle">
+          <input name="days" value="sat" type="checkbox">
+          <span class="label-body">Saturday</span>
+        </label>
+      </div>
+    </div>
+    <div class="flex-row pad-top-5 pad-bottom-5">
+      <div class="flex-column">
+        <label class="button-toggle">
+          <input name="times" value="5:30" type="checkbox" checked>
+          <span class="label-body">5:30 AM</span>
+        </label>
+        <label class="button-toggle">
+          <input name="times" value="8:00" type="checkbox" checked>
+          <span class="label-body">8:00 AM</span>
+        </label>
+        <label class="button-toggle">
+          <input name="times" value="10:15" type="checkbox" checked>
+          <span class="label-body">10:15 AM</span>
+        </label>
+        <label class="button-toggle">
+          <input name="times" value="12:30" type="checkbox" checked>
+          <span class="label-body">12:30 PM</span>
+        </label>
+        <label class="button-toggle">
+          <input name="times" value="15:45<" type="checkbox" checked>
+          <span class="label-body">3:45 PM</span>
+        </label>
+        <label class="button-toggle">
+          <input name="times" value="18:00" type="checkbox" checked>
+          <span class="label-body">6:00 PM</span>
+        </label>
+        <label class="button-toggle">
+          <input name="times" value="21:00" type="checkbox">
+          <span class="label-body">9:00 PM</span>
+        </label>
+      </div>
+    </div>
+    <div class="flex-row pad-top-5 pad-bottom-5">
+      <div class="flex-column">
+        <input type="datetime" id="requested-datetime">
+      </div>
+      <div class="flex-column">
+        <input type="datetime" id="result-datetime" readonly>
+      </div>
+      <div class="flex-column">
+        <button id="calculate-button" type="submit">Calculate</button>
+      </div>
+    </div>
+  </div>
 
   <!--<script src="js/vendor/jquery.min.js"></script>
 <script src="js/default.js"></script>-->
-
+  <script src="js/main.js"></script>
   <!-- Google Analytics - Update UA-XXXXX-X ID -->
   <script>
     (function(b, o, i, l, e, r) {
@@ -40,77 +117,6 @@
     ga('create', 'UA-XXXXX-X');
     ga('send', 'pageview');
   </script>
-  <div class="container-full">
-    <div class="flex-row pad-top-5 pad-bottom-5">
-      <div class="flex-column">
-        <label class="button-toggle">
-          <input type="checkbox">
-          <span class="label-body">Sunday</span>
-        </label>
-        <label class="button-toggle">
-          <input type="checkbox" checked>
-          <span class="label-body">Monday</span>
-        </label>
-        <label class="button-toggle">
-          <input type="checkbox" checked>
-          <span class="label-body">Tuesday</span>
-        </label>
-        <label class="button-toggle">
-          <input type="checkbox" checked>
-          <span class="label-body">Wednesday</span>
-        </label>
-        <label class="button-toggle">
-          <input type="checkbox" checked>
-          <span class="label-body">Thursday</span>
-        </label>
-        <label class="button-toggle">
-          <input type="checkbox" checked>
-          <span class="label-body">Friday</span>
-        </label>
-        <label class="button-toggle">
-          <input type="checkbox">
-          <span class="label-body">Saturday</span>
-        </label>
-      </div>
-    </div>
-    <div class="flex-row pad-top-5 pad-bottom-5">
-      <div class="flex-column">
-        <label class="button-toggle">
-          <input type="checkbox" checked>
-          <span class="label-body">5:30 AM</span>
-        </label>
-        <label class="button-toggle">
-          <input type="checkbox" checked>
-          <span class="label-body">8:00 AM</span>
-        </label>
-        <label class="button-toggle">
-          <input type="checkbox" checked>
-          <span class="label-body">10:15 AM</span>
-        </label>
-        <label class="button-toggle">
-          <input type="checkbox" checked>
-          <span class="label-body">12:30 PM</span>
-        </label>
-        <label class="button-toggle">
-          <input type="checkbox" checked>
-          <span class="label-body">3:45 PM</span>
-        </label>
-        <label class="button-toggle">
-          <input type="checkbox" checked>
-          <span class="label-body">6:00 PM</span>
-        </label>
-        <label class="button-toggle">
-          <input type="checkbox">
-          <span class="label-body">9:00 PM</span>
-        </label>
-      </div>
-    </div>
-    <div class="flex-row pad-top-5 pad-bottom-5">
-      <div class="flex-column">
-        <button type="submit">Calculate</button>
-      </div>
-    </div>
-  </div>
 </body>
 
 </html>
