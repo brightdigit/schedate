@@ -33,6 +33,7 @@ ready(function() {
       times: times,
       timezone: moment.tz.guess(),
     };
+    console.log(requestedDatetimeInput.value);
     var result = schedate.first([schedule], moment(requestedDatetimeInput.value));
     resultDatetime.value = result;
   });
