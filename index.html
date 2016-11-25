@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Base</title>
+  <title>schedate - scheduling events based on availablility</title>
 
   <meta name="description" content="">
   <meta name="theme-color" content="#f7c824">
@@ -19,9 +19,33 @@
 </head>
 
 <body>
-  <div class="container-full">
-    <div class="flex-row pad-top-5 pad-bottom-5">
-      <div class="flex-column">
+  <header>
+    <div class="nav">
+      <div class="container">
+        <div class="row clear pad-top-10 pad-bottom-5">
+          <div class="col-12">
+            <h1>schedate</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row clear pad-bottom-5">
+    </div>
+    <div class="row clear pad-top-5 pad-bottom-5">
+      <div class="column col-12">
+        <h2>Demo</h2>
+      </div>
+    </div>
+    <div class="row clear pad-top-5 pad-bottom-5">
+      <div class="column col-12">
+        <h3>Weekdays</h3>
+      </div>
+    </div>
+    <div class="row clear pad-top-5 pad-bottom-5">
+      <div class="column col-12">
         <label class="button-toggle">
           <input name="days" value="sun" type="checkbox">
           <span class="label-body">Sunday</span>
@@ -52,8 +76,13 @@
         </label>
       </div>
     </div>
-    <div class="flex-row pad-top-5 pad-bottom-5">
-      <div class="flex-column">
+    <div class="row clear pad-top-5 pad-bottom-5">
+      <div class="column col-12">
+        <h3>Times</h3>
+      </div>
+    </div>
+    <div class="row clear pad-top-5 pad-bottom-5">
+      <div class="col-12">
         <label class="button-toggle">
           <input name="times" value="5:30" type="checkbox" checked>
           <span class="label-body">5:30 AM</span>
@@ -84,15 +113,45 @@
         </label>
       </div>
     </div>
-    <div class="flex-row pad-top-5 pad-bottom-5">
-      <div class="flex-column">
-        <input type="datetime" id="requested-datetime">
+    <div class="row clear pad-top-5 pad-bottom-5">
+      <div class="col-12 col-6-m">
+        <div class="row clear pad-top-5 pad-bottom-5">
+          <div class="column col-12">
+            <h3>Requested Date</h3>
+          </div>
+        </div>
+        <div class="row clear pad-top-5 pad-bottom-5">
+          <div class="col-12">
+            <input type="datetime" id="requested-datetime" class="font-100" style="width: 100%;" readonly>
+          </div>
+        </div>
+        <div class="row clear pad-top-5 pad-bottom-5">
+          <div class="col-12">
+            <div id="requested-datetime-calendar"></div>
+          </div>
+        </div>
       </div>
-      <div class="flex-column">
-        <input type="datetime" id="result-datetime" readonly>
-      </div>
-      <div class="flex-column">
-        <button id="calculate-button" type="submit">Calculate</button>
+      <div class="col-12 col-6-m">
+        <div class="row clear pad-top-5 pad-bottom-5">
+          <div class="column col-12">
+            <h3>Result</h3>
+          </div>
+        </div>
+        <div class="row clear pad-top-5 pad-bottom-5">
+          <div class="col-12">
+            <input type="datetime" id="result-datetime" class="font-500" style="width: 100%;" readonly>
+          </div>
+        </div>
+        <div class="row clear pad-top-5 pad-bottom-5">
+          <div class="column col-12">
+            <h3>Code</h3>
+          </div>
+        </div>
+        <div class="row clear pad-top-5 pad-bottom-5">
+          <div class="col-12">
+            <code></code>
+          </div>
+        </div>
       </div>
     </div>
   </div>

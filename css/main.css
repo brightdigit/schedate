@@ -2236,7 +2236,6 @@ label.button-toggle {
       display: inline-block;
       height: 38px;
       padding: 0 30px;
-      /*color: $secondary-color;*/
       text-align: center;
       font-size: 11px;
       font-weight: 600;
@@ -2267,9 +2266,27 @@ label.button-toggle {
                                   not supported by any browser */ }
     label.button-toggle > input:checked + .label-body {
       color: #fff;
-      background-color: #000;
-      /*background-color: $primary-color;
-      border-color: $primary-color;*/ }
+      background-color: #000; }
+
+header {
+  color: #fff;
+  background-color: #000; }
+  header h1 {
+    color: #fff; }
+
+code {
+  color: #fff;
+  background-color: #000;
+  display: block;
+  padding: 10px; }
+
+input[type=datetime] {
+  border: none;
+  padding: 0;
+  margin: 0; }
+
+#result-datetime {
+  font-size: 1.5em; }
 
 /**
  * rome - Customizable date (and time) picker. Opt-in UI, no jQuery!
