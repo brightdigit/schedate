@@ -40,6 +40,6 @@ ready(function() {
     var requedDateTime = moment(requestedDatetimeInput.value, 'dddd, MMMM Do YYYY, h:mm a');
     document.getElementsByTagName('code')[0].innerText = ['schedate.first(', JSON.stringify([schedule]), ', new Date("', requedDateTime.toDate(), '"));'].join('');
     var result = schedate.first([schedule], requedDateTime);
-    resultDatetime.value = result;
+    resultDatetime.value = result.format('dddd, MMMM Do YYYY, h:mm a');
   });
 });
