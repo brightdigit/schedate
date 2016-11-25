@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Base</title>
+  <title>schedate - scheduling events based on availablility</title>
 
   <meta name="description" content="">
   <meta name="theme-color" content="#f7c824">
@@ -86,13 +86,22 @@
     </div>
     <div class="flex-row pad-top-5 pad-bottom-5">
       <div class="flex-column">
-        <input type="datetime" id="requested-datetime">
+        <div id="requested-datetime-calendar"></div>
+        <input type="datetime" id="requested-datetime" readonly>
+      </div>
+    </div>
+
+    <div class="flex-row pad-top-5 pad-bottom-5">
+      <div class="flex-column">
+        <code></code>
+      </div>
+    </div>
+    <div class="flex-row pad-top-5 pad-bottom-5">
+      <div class="flex-column">
+        <button id="calculate-button" type="submit">Run</button>
       </div>
       <div class="flex-column">
         <input type="datetime" id="result-datetime" readonly>
-      </div>
-      <div class="flex-column">
-        <button id="calculate-button" type="submit">Calculate</button>
       </div>
     </div>
   </div>

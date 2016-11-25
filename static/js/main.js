@@ -14,9 +14,13 @@ ready(function() {
   // Your page initialization code here
   // the DOM will be available here
   var requestedDatetimeInput = document.getElementById('requested-datetime');
-  rome(requestedDatetimeInput, {
+  rome(document.getElementById('requested-datetime-calendar'), {
     initialValue: new Date(),
+    inputFormat: 'dddd, MMMM Do YYYY, h:mm a',
+  }).on('data', function(value) {
+    requestedDatetimeInput.value = value;
   });
+  requestedDatetimeInput.value = moment(new Date()).format('dddd, MMMM Do YYYY, h:mm a');
 
   var resultDatetime = document.getElementById('result-datetime');
 
@@ -33,8 +37,9 @@ ready(function() {
       times: times,
       timezone: moment.tz.guess(),
     };
-    console.log(requestedDatetimeInput.value);
-    var result = schedate.first([schedule], moment(requestedDatetimeInput.value));
+    var requedDateTime = moment(requestedDatetimeInput.value, 'dddd, MMMM Do YYYY, h:mm a');
+    document.getElementsByTagName('code')[0].innerText = ['schedate.first(', JSON.stringify([schedule]), ', new Date("', requedDateTime.toDate(), '"));'].join('');
+    var result = schedate.first([schedule], requedDateTime);
     resultDatetime.value = result;
   });
 });

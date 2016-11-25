@@ -46,4 +46,8 @@ label.button-toggle {
   }
 }
 
+input[type=datetime] {
+  font-size: 0.9em;
+}
+
 @import "../../node_modules/rome/dist/rome";
