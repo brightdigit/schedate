@@ -1,6 +1,6 @@
 {
   "name": "schedate-gh-pages",
-  "version": "1.0.0-alpha.104",
+  "version": "1.0.0-alpha.136",
   "description": "Github Pages sources for schedate.",
   "main": "static",
   "devDependencies": {

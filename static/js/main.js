@@ -10,22 +10,29 @@ function ready(fn) {
   }
 }
 
+
 ready(function() {
   // Your page initialization code here
   // the DOM will be available here
-  var requestedDatetimeInput = document.getElementById('requested-datetime');
+  var requestedDateTimeInput = document.getElementById('requested-datetime');
   rome(document.getElementById('requested-datetime-calendar'), {
     initialValue: new Date(),
     inputFormat: 'dddd, MMMM Do YYYY, h:mm a',
   }).on('data', function(value) {
-    requestedDatetimeInput.value = value;
+    requestedDateTimeInput.value = value;
+    calculate();
   });
-  requestedDatetimeInput.value = moment(new Date()).format('dddd, MMMM Do YYYY, h:mm a');
+  requestedDateTimeInput.value = moment(new Date()).format('dddd, MMMM Do YYYY, h:mm a');
 
   var resultDatetime = document.getElementById('result-datetime');
 
   var calculateButton = document.getElementById('calculate-button');
-  calculateButton.addEventListener('click', function() {
+
+  Array.prototype.slice.call(document.getElementsByTagName('input')).forEach(function(element) {
+    element.addEventListener('click', calculate);
+  });
+
+  function calculate() {
     var days = Array.prototype.slice.call(document.querySelectorAll('[name=days]:checked')).map(function(element, index) {
       return element.value;
     });
@@ -37,9 +44,12 @@ ready(function() {
       times: times,
       timezone: moment.tz.guess(),
     };
-    var requedDateTime = moment(requestedDatetimeInput.value, 'dddd, MMMM Do YYYY, h:mm a');
-    document.getElementsByTagName('code')[0].innerText = ['schedate.first(', JSON.stringify([schedule]), ', new Date("', requedDateTime.toDate(), '"));'].join('');
+    var requedDateTime = moment(requestedDateTimeInput.value, 'dddd, MMMM Do YYYY, h:mm a');
+    document.getElementsByTagName('code')[0].innerText = ['schedate.first(\n', JSON.stringify([schedule], null, 2), ',\nnew Date("', requedDateTime.toDate(), '")\n);'].join('');
     var result = schedate.first([schedule], requedDateTime);
     resultDatetime.value = result.format('dddd, MMMM Do YYYY, h:mm a');
-  });
+  }
+
+
+  calculate();
 });

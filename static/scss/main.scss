@@ -7,7 +7,6 @@ label.button-toggle {
       display: inline-block;
       height: 38px;
       padding: 0 30px;
-      /*color: $secondary-color;*/
       text-align: center;
       font-size: 11px;
       font-weight: 600;
@@ -38,12 +37,37 @@ label.button-toggle {
                                   not supported by any browser */
     }
     &:checked+.label-body {
-      color: #fff;
-      background-color: #000;
-      /*background-color: $primary-color;
-      border-color: $primary-color;*/
+      color: $base-background-color;
+      background-color: $base-font-color;
     }
   }
+}
+
+header {
+  color: $base-background-color;
+  background-color: $base-font-color;
+  h1 {
+    color: $base-background-color;
+  }
+}
+
+code {
+  color: $base-background-color;
+  background-color: $base-font-color;
+  display: block;
+  padding: 10px;
+}
+
+input[type=datetime] {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+#requested-datetime {}
+
+#result-datetime {
+  font-size: 1.5em;
 }
 
 @import "../../node_modules/rome/dist/rome";

@@ -19,7 +19,31 @@
 </head>
 
 <body>
+  <header>
+    <div class="nav">
+      <div class="container">
+        <div class="row clear pad-top-10 pad-bottom-5">
+          <div class="col-12">
+            <h1>schedate</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </header>
   <div class="container">
+    <div class="row clear pad-bottom-5">
+    </div>
+    <div class="row clear pad-top-5 pad-bottom-5">
+      <div class="column col-12">
+        <h2>Demo</h2>
+      </div>
+    </div>
+    <div class="row clear pad-top-5 pad-bottom-5">
+      <div class="column col-12">
+        <h3>Weekdays</h3>
+      </div>
+    </div>
     <div class="row clear pad-top-5 pad-bottom-5">
       <div class="column col-12">
         <label class="button-toggle">
@@ -50,6 +74,11 @@
           <input name="days" value="sat" type="checkbox">
           <span class="label-body">Saturday</span>
         </label>
+      </div>
+    </div>
+    <div class="row clear pad-top-5 pad-bottom-5">
+      <div class="column col-12">
+        <h3>Times</h3>
       </div>
     </div>
     <div class="row clear pad-top-5 pad-bottom-5">
@@ -87,30 +116,40 @@
     <div class="row clear pad-top-5 pad-bottom-5">
       <div class="col-12 col-6-m">
         <div class="row clear pad-top-5 pad-bottom-5">
-          <div class="col-12">
-            <div id="requested-datetime-calendar"></div>
+          <div class="column col-12">
+            <h3>Requested Date</h3>
           </div>
         </div>
         <div class="row clear pad-top-5 pad-bottom-5">
           <div class="col-12">
-            <input type="datetime" id="requested-datetime" style="width: 100%;" readonly>
+            <input type="datetime" id="requested-datetime" class="font-100" style="width: 100%;" readonly>
+          </div>
+        </div>
+        <div class="row clear pad-top-5 pad-bottom-5">
+          <div class="col-12">
+            <div id="requested-datetime-calendar"></div>
           </div>
         </div>
       </div>
       <div class="col-12 col-6-m">
         <div class="row clear pad-top-5 pad-bottom-5">
+          <div class="column col-12">
+            <h3>Result</h3>
+          </div>
+        </div>
+        <div class="row clear pad-top-5 pad-bottom-5">
+          <div class="col-12">
+            <input type="datetime" id="result-datetime" class="font-500" style="width: 100%;" readonly>
+          </div>
+        </div>
+        <div class="row clear pad-top-5 pad-bottom-5">
+          <div class="column col-12">
+            <h3>Code</h3>
+          </div>
+        </div>
+        <div class="row clear pad-top-5 pad-bottom-5">
           <div class="col-12">
             <code></code>
-          </div>
-        </div>
-        <div class="row clear pad-top-5 pad-bottom-5">
-          <div class="col-12">
-            <input type="datetime" id="result-datetime" style="width: 100%;" readonly>
-          </div>
-        </div>
-        <div class="row clear pad-top-5 pad-bottom-5">
-          <div class="col-12">
-            <button id="calculate-button" type="submit">Run</button>
           </div>
         </div>
       </div>
