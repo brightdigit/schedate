@@ -2271,8 +2271,15 @@ label.button-toggle {
 header {
   color: #fff;
   background-color: #000; }
-  header h1 {
+  header * {
     color: #fff; }
+  header .version-tag {
+    font-weight: 100;
+    text-decoration: none;
+    font-size: 0.75em;
+    line-height: 1.33em; }
+    header .version-tag:hover {
+      color: #fff; }
 
 code {
   color: #fff;
