@@ -12,6 +12,8 @@ var bump = require('gulp-bump');
 var mochaPhantomJS = require('gulp-mocha-phantomjs');
 var del = require('del');
 var ghPages = require('gulp-gh-pages');
+var gittags = require('git-tags');
+var htmlreplace = require('gulp-html-replace');
 
 var async = require('async');
 var yaml = require('js-yaml');
@@ -37,15 +39,29 @@ gulp.task('serve', function() {
     server.notify.apply(server, [file]);
   });
 });
+
 gulp.task('clean', function() {
   return del([
     'public',
   ]);
 });
 
-gulp.task('html', function() {
-  return gulp.src('./static/**/*.html')
-    .pipe(gulp.dest('./public'));
+gulp.task('html', function(cb) {
+
+
+  gittags.latest(function(err, latest) {
+
+    var versionHtml = ['<a class="version-tag" href="https://github.com/brightdigit/schedate/archive/', null, '.zip">', null, '</a>'].map(
+      function(item) {
+        return item ? item : latest;
+      }).join('');
+    gulp.src('./static/**/*.html')
+      .pipe(htmlreplace({
+        'tag-link': versionHtml,
+      }))
+      .pipe(gulp.dest('./public'))
+      .on('end', cb);
+  });
 });
 
 gulp.task('sass', function() {

@@ -46,8 +46,17 @@ label.button-toggle {
 header {
   color: $base-background-color;
   background-color: $base-font-color;
-  h1 {
+  * {
     color: $base-background-color;
+  }
+  .version-tag {
+    font-weight: 100;
+    text-decoration: none;
+    font-size: 0.75em;
+    line-height: 1.33em;
+    &:hover {
+      color: $base-background-color;
+    }
   }
 }
 
