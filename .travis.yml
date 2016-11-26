@@ -8,3 +8,5 @@ node_js:
 branches:
   except:
     - /^gh-.*$/
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
