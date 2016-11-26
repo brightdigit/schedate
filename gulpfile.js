@@ -118,11 +118,16 @@ gulp.task('appveyor', gulp.series('bump', function(done) {
   });
 }));
 
+gulp.task('assets', function() {
+  return gulp.src('./static/assets/**/*')
+    .pipe(gulp.dest('public/assets'));
+});
+
 gulp.task('prep', gulp.parallel('lint', 'jscs', 'prettify'));
 
 gulp.task('js', gulp.series('browserify'));
 
-gulp.task('build', gulp.parallel('html', 'sass', 'js'));
+gulp.task('build', gulp.parallel('html', 'sass', 'js', 'assets'));
 
 gulp.task('public', gulp.series('clean', 'prep', 'build'));
 

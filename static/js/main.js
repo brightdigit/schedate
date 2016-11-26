@@ -45,7 +45,7 @@ ready(function() {
       timezone: moment.tz.guess(),
     };
     var requedDateTime = moment(requestedDateTimeInput.value, 'dddd, MMMM Do YYYY, h:mm a');
-    document.getElementsByTagName('code')[0].innerText = ['schedate.first(\n', JSON.stringify([schedule], null, 2), ',\nnew Date("', requedDateTime.toDate(), '")\n);'].join('');
+    document.getElementsByTagName('code')[1].innerText = ['schedate.first(\n', JSON.stringify([schedule], null, 2), ',\nnew Date("', requedDateTime.toDate(), '")\n);'].join('');
     var result = schedate.first([schedule], requedDateTime);
     resultDatetime.value = result.format('dddd, MMMM Do YYYY, h:mm a');
   }
